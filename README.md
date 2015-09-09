@@ -17,4 +17,10 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         def application do
           [applications: [:ssh_client]]
         end
-# ssh_client
+
+## Running
+
+```iex
+iex(1)> {:ok, conn} = SSHClient.start_link 'localhost', 22, [user: 'YOUR_USER', password: 'YOUR_PASS']
+iex(2)> {:ok, stdout} = SSHClient.run conn, 'ls /tmp'
+```
